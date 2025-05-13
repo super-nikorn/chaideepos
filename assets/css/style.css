@@ -1,0 +1,60 @@
+nav {
+  background-color: #ecc1c1;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  display: inline-block; /* ให้มันจัดเป็น block แนวนอน */
+  vertical-align: middle; /* จัดตำแหน่งให้เท่ากันแนวตั้ง */
+}
+
+nav img {
+  /* height: 20px; */
+  vertical-align: middle; /* จัดแนวรูปให้ตรงกับเมนู */
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #f4f4f4;
+}
+
+.left-box {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-box {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.right-box img{
+  width: 100%;
+  max-width: 400px;
+}
+
+.btn-register {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.footer-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
