@@ -56,13 +56,13 @@ auth.onAuthStateChanged((user) => {
       });
   } else {
     // ยังไม่ login → redirect กลับ login.html
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 });
 
 // ปุ่ม logout
 logoutBtn.addEventListener("click", () => {
   auth.signOut().then(() => {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   });
 });

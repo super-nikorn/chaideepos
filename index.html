@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard - ChaideePOS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login  - ChaideePos</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <div class="container">
-    <aside class="sidebar">
-      <img src="assets/images/ChaideePos.png" alt="Logo" class="sidebar-logo" />
-      <h2>👤 ข้อมูลผู้ใช้</h2>
-      <p><strong>ชื่อ:</strong> <span id="user-name">-</span></p>
-      <p><strong>Email:</strong> <span id="user-email">-</span></p>
-      <p><strong>ยอดเงิน:</strong> <span id="user-balance">-</span> บาท</p>
-      <button id="logout-btn">ออกจากระบบ</button>
-    </aside>
-    <main class="main-content">
-      <h1>🎉 ยินดีต้อนรับสู่ ChaideePOS</h1>
-      <p>แดชบอร์ดของคุณอยู่ที่นี่</p>
-    </main>
+  <div class="login-container">
+    <img src="assets/images/ChaideePos.png" alt="Logo" class="logo" />
+    <h1>เข้าสู่ระบบ</h1>
+    <form id= "login-form">
+      <label for="email">อีเมลล์</label>
+      <input type="email" id="email" required placeholder="กรอกอีเมลล์" />
+
+      <label for="password">รหัสผ่าน</label>
+      <input type="password" id="password" required placeholder="กรอกรหัสผ่าน" />
+      
+      <button type="submit">เข้าสู่ระบบ เดี๋ยวนี้</button>
+    </form>
+    <p id="error-msg" class="error-msg"></p>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
   <script src="assets/js/firebase.js"></script>
-  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/login.js"></script>
+
 </body>
 </html>

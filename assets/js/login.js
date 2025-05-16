@@ -13,7 +13,7 @@ loginForm.addEventListener("submit", (e) => {
   auth.signInWithEmailAndPassword(email, password)
     .then(() => {
       // login สำเร็จ -> พาไปหน้า index.html
-      window.location.href = "index.html";
+      window.location.href = "dashboard.html";
     })
     .catch((error) => {
       errorMsg.textContent = "ผิดพลาด: " + error.message;
