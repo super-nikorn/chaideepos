@@ -1,128 +1,213 @@
-/* assets/css/style.css */
-
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
+/* ===== Reset & Base ===== */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* ===== Header ===== */
+header {
+  background: #2d89ef;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+/* ===== Navigation ===== */
+nav {
+  background: #1b5eab;
   display: flex;
-  height: 100vh;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* ===== Main Layout ===== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sidebar {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 2rem;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ===== Responsive (for screens >= 768px) ===== */
+@media (min-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .main-content {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    flex: 1;
+  }
+
+  .content {
+    flex: 3;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+
+/* ===== Reset & Base ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #d1eaff, #ffffff);
+  min-height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* ===== Login Container ===== */
 .login-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-  padding: 20px;
-}
-
-.login-box {
-  background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   text-align: center;
 }
 
 .logo {
-  max-width: 120px;
-  margin-bottom: 20px;
+  width: 100px;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  margin-bottom: 20px;
-  font-weight: 600;
-  color: #333;
+  font-size: 1.8rem;
+  color: #2d89ef;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Form Styling ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 label {
-  display: block;
   text-align: left;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #555;
+  font-weight: bold;
+  color: #333;
 }
 
 input[type="email"],
 input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  font-size: 16px;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #2d89ef;
+  outline: none;
+}
+
+/* ===== Button Styling ===== */
 button {
-  width: 100%;
-  padding: 12px;
-  background-color: #0069d9;
+  padding: 0.75rem;
+  background-color: #2d89ef;
   color: white;
-  font-weight: 700;
+  font-size: 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
 button:hover {
-  background-color: #004a99;
+  background-color: #1b5eab;
 }
 
+/* ===== Error Message ===== */
 .error-msg {
-  margin-top: 12px;
   color: red;
-  font-weight: 600;
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
-/* Dashboard layout */
-.container {
-  display: flex;
-  height: 100vh;
-}
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1.5rem;
+  }
 
-.sidebar {
-  width: 260px;
-  background-color: #1f2937;
-  color: white;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  h1 {
+    font-size: 1.5rem;
+  }
 
-.sidebar-logo {
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-.sidebar h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.sidebar p {
-  margin: 8px 0;
-}
-
-.sidebar button {
-  margin-top: 30px;
-  padding: 10px;
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.sidebar button:hover {
-  background-color: #b91c1c;
-}
-
-.main-content {
-  flex: 1;
-  padding: 40px;
-  background-color: #f9fafb;
+  button {
+    font-size: 0.95rem;
+  }
 }
