@@ -1,60 +1,78 @@
-nav {
-  background-color: #ecc1c1;
-  padding: 10px;
-  text-align: center;
-}
+/* assets/css/style.css */
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #333;
-  display: inline-block; /* ให้มันจัดเป็น block แนวนอน */
-  vertical-align: middle; /* จัดตำแหน่งให้เท่ากันแนวตั้ง */
-}
-
-nav img {
-  /* height: 20px; */
-  vertical-align: middle; /* จัดแนวรูปให้ตรงกับเมนู */
-}
-
-.main-section {
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
   display: flex;
+  height: 100vh;
   justify-content: center;
   align-items: center;
-  padding: 50px;
-  background-color: #f4f4f4;
 }
 
-.left-box {
-  flex: 1;
+.login-container {
+  width: 100%;
+  max-width: 400px;
   padding: 20px;
 }
 
-.right-box {
-  flex: 1;
-  padding: 20px;
+.login-box {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-.right-box img{
-  width: 100%;
-  max-width: 400px;
+.logo {
+  max-width: 120px;
+  margin-bottom: 20px;
 }
 
-.btn-register {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  margin-top: 20px;
-  border-radius: 5px;
+h1 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
 }
 
-.footer-img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
+label {
   display: block;
-  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0069d9;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004a99;
+}
+
+.error-msg {
+  margin-top: 12px;
+  color: red;
+  font-weight: 600;
 }
