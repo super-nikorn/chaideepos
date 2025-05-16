@@ -20,6 +20,58 @@
       <h1>🎉 ยินดีต้อนรับสู่ ChaideePOS</h1>
       <p>แดชบอร์ดของคุณอยู่ที่นี่</p>
     </main>
+    <div class="button-input">
+      <button id="openDialog">เปิดฟอร์ม</button>
+      <!-- <button id="input-numberThai">หวยไทย</button> -->
+      <button id="input-numberLoa">หวยลาว</button>
+      <button id="input-numberHanoy">ฮานอย</button>
+      <button id="input-numberLaopat">ลาวพัฒนา</button>
+    </div>
+
+    <dialog id="myDialog">
+        <h2>ฟอร์มข้อมูล</h2>
+        <form method="dialog">
+            <div class="form-group">
+                <label for="name">ชื่อ:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">อีเมล:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="button-group">
+                <button type="button" id="cancelBtn">ยกเลิก</button>
+                <button type="submit" id="confirmBtn">ยืนยัน</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script>
+      const dialog = document.getElementById('myDialog');
+      const openBtn = document.getElementById('openDialog');
+      const cancelBtn = document.getElementById('cancelBtn');
+
+      // เปิด dialog เมื่อคลิกปุ่ม
+      openBtn.addEventListener('click', () => {
+          dialog.showModal();
+      });
+
+      // ปิด dialog เมื่อคลิกยกเลิก
+      cancelBtn.addEventListener('click', () => {
+          dialog.close();
+      });
+
+      // จัดการเมื่อฟอร์มถูก submit
+      dialog.addEventListener('close', () => {
+          if (dialog.returnValue === 'confirm') {
+              const name = document.getElementById('name').value;
+              const email = document.getElementById('email').value;
+              console.log('ข้อมูลที่กรอก:', { name, email });
+              alert(`บันทึกข้อมูลเรียบร้อย: ${name}, ${email}`);
+          }
+      });
+    </script>
+
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
