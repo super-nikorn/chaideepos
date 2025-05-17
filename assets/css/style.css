@@ -53,3 +53,23 @@ form input {
 .button-submit button:hover {
   background-color: #218838;
 }
+
+/* .button-register {
+  margin-top: 20px;
+}
+
+.button-register button {
+  width: 100%;
+  background-color:lightskyblue;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor:pointer;
+  transition: background-color 0.3 ease;
+}
+
+.button-register button:hover {
+  background-color: rgb(97, 185, 229);
+} */
