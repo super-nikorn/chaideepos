@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>เพิ่มการแทงหวย</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <h1>เพิ่มการแทงใหม่</h1>
+
+  <form id="betForm">
+    <label>ชื่อผู้แทง: <input type="text" name="name" required></label><br>
+
+    <label>ประเภทหวย:
+      <select name="type" required>
+        <option value="thai">หวยไทย</option>
+        <option value="lao">หวยลาว</option>
+        <option value="hanoi">หวยฮานอย</option>
+      </select>
+    </label><br>
+
+    <label>เลขที่แทง: <input type="text" name="number" required></label><br>
+    
+    <label>ประเภทเลข:
+      <select name="position" required>
+        <option value="top">เลขบน</option>
+        <option value="bottom">เลขล่าง</option>
+        <option value="tod">โต๊ด</option>
+      </select>
+    </label><br>
+
+    <label>จำนวนเงิน: <input type="number" name="amount" required></label><br>
+
+    <button type="submit">บันทึก</button>
+  </form>
+
+  <script src="assets/js/form.js"></script>
+</body>
+</html>

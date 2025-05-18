@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LottoKit - รายงาน</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid py-4">
+      <h1 class="text-center mb-4">รายงานสถิติ</h1>
+
+      <ul class="nav nav-tabs mb-4" id="reportTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="daily-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#daily"
+            type="button"
+            role="tab"
+          >
+            รายวัน
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="monthly-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#monthly"
+            type="button"
+            role="tab"
+          >
+            รายเดือน
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="popular-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#popular"
+            type="button"
+            role="tab"
+          >
+            เลขยอดนิยม
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="reportTabsContent">
+        <div class="tab-pane fade show active" id="daily" role="tabpanel">
+          <h4>รายงานประจำวัน</h4>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th>วันที่</th>
+                  <th>หวยไทย</th>
+                  <th>หวยลาว</th>
+                  <th>หวยฮานอย</th>
+                  <th>รวมทั้งหมด</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01/06/2023</td>
+                  <td>25,540 บาท</td>
+                  <td>18,320 บาท</td>
+                  <td>12,150 บาท</td>
+                  <td>56,010 บาท</td>
+                </tr>
+                <!-- เพิ่มแถวข้อมูลอื่นๆ ตามต้องการ -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="monthly" role="tabpanel">
+          <h4>รายงานประจำเดือน</h4>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th>เดือน/ปี</th>
+                  <th>หวยไทย</th>
+                  <th>หวยลาว</th>
+                  <th>หวยฮานอย</th>
+                  <th>รวมทั้งหมด</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>มิถุนายน 2023</td>
+                  <td>450,200 บาท</td>
+                  <td>320,500 บาท</td>
+                  <td>210,300 บาท</td>
+                  <td>981,000 บาท</td>
+                </tr>
+                <!-- เพิ่มแถวข้อมูลอื่นๆ ตามต้องการ -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="popular" role="tabpanel">
+          <h4>เลขที่แทงบ่อย</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <h5>เลขบน</h5>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>อันดับ</th>
+                    <th>หมายเลข</th>
+                    <th>จำนวนครั้ง</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>123</td>
+                    <td>45 ครั้ง</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>567</td>
+                    <td>38 ครั้ง</td>
+                  </tr>
+                  <!-- เพิ่มแถวข้อมูลอื่นๆ ตามต้องการ -->
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <h5>เลขล่าง</h5>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>อันดับ</th>
+                    <th>หมายเลข</th>
+                    <th>จำนวนครั้ง</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>45</td>
+                    <td>62 ครั้ง</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>89</td>
+                    <td>55 ครั้ง</td>
+                  </tr>
+                  <!-- เพิ่มแถวข้อมูลอื่นๆ ตามต้องการ -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

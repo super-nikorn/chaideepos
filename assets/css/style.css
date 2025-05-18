@@ -1,4 +1,4 @@
-body {
+ body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f6f8;
   display: flex;
@@ -8,7 +8,26 @@ body {
   margin: 0;
 }
 
-.login-container {
+.logo {
+  width: 100px;
+  margin-bottom: 10px;
+ }
+/* .sidebar-logo {
+  width: 100px;
+} */
+
+/* .dashboard-container {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow:  0 px 12px rgb(0, 0, 0 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow:  0 px 12px rgb(0, 0, 0 0.15);
+} */
+
+/* .login-container {
   background-color: #ffffff;
   padding: 30px 40px;
   border-radius: 12px;
@@ -35,7 +54,7 @@ body {
   width: 100%;
   max-width: 400px;
   text-align: center;
-}
+} */
 
 form label {
   display: block;
@@ -52,7 +71,6 @@ form input {
   border-radius: 8px;
   box-sizing: border-box;
 }
-
 .button-submit {
   margin-top: 20px;
 }
@@ -69,11 +87,10 @@ form input {
   transition: background-color 0.3 ease;
 }
 
-.button-submit button:hover {
-  background-color: #218838;
+button-submit button:hover {
+  background-color: #218838
 }
-
-.button-register {
+/* .button-register {
   margin-top: 20px;
 }
 
@@ -87,9 +104,9 @@ form input {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3 ease;
-}
+} */
 
-.button-register button:hover {
+/* .button-register button:hover {
   background-color: #218838;
 }
 
@@ -118,7 +135,7 @@ form input {
   text-align: center;
   justify-content: center;
   gap: 10px;
-}
+} */
 
 /* .button-register {
   margin-top: 20px;

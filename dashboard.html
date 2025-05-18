@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <aside class="sidebar">
+    <div class="dashboard-container">
+      <form class="sidebar">
         <img
           src="assets/images/ChaideePos.png"
           alt="Logo"
@@ -19,62 +19,14 @@
         <p><strong>Email:</strong> <span id="user-email">-</span></p>
         <p><strong>ยอดเงิน:</strong> <span id="user-balance">-</span> บาท</p>
         <button id="logout-btn">ออกจากระบบ</button>
-      </aside>
-      <main class="main-content">
-        <h1>🎉 ยินดีต้อนรับสู่ ChaideePOS</h1>
-        <p>แดชบอร์ดของคุณอยู่ที่นี่</p>
-      </main>
+      </form>
+      <main class="main-content"></main>
       <div class="button-input">
         <button id="openDialog">เปิดฟอร์ม</button>
-        <!-- <button id="input-numberThai">หวยไทย</button> -->
         <button id="input-numberLoa">หวยลาว</button>
         <button id="input-numberHanoy">ฮานอย</button>
         <button id="input-numberLaopat">ลาวพัฒนา</button>
       </div>
-
-      <dialog id="myDialog">
-        <h2>ฟอร์มข้อมูล</h2>
-        <form method="dialog">
-          <div class="form-group">
-            <label for="name">ชื่อ:</label>
-            <input type="text" id="name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">อีเมล:</label>
-            <input type="email" id="email" required />
-          </div>
-          <div class="button-group">
-            <button type="button" id="cancelBtn">ยกเลิก</button>
-            <button type="submit" id="confirmBtn">ยืนยัน</button>
-          </div>
-        </form>
-      </dialog>
-
-      <script>
-        const dialog = document.getElementById("myDialog");
-        const openBtn = document.getElementById("openDialog");
-        const cancelBtn = document.getElementById("cancelBtn");
-
-        // เปิด dialog เมื่อคลิกปุ่ม
-        openBtn.addEventListener("click", () => {
-          dialog.showModal();
-        });
-
-        // ปิด dialog เมื่อคลิกยกเลิก
-        cancelBtn.addEventListener("click", () => {
-          dialog.close();
-        });
-
-        // จัดการเมื่อฟอร์มถูก submit
-        dialog.addEventListener("close", () => {
-          if (dialog.returnValue === "confirm") {
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            console.log("ข้อมูลที่กรอก:", { name, email });
-            alert(`บันทึกข้อมูลเรียบร้อย: ${name}, ${email}`);
-          }
-        });
-      </script>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
@@ -83,4 +35,277 @@
     <script src="assets/js/firebase.js"></script>
     <script src="assets/js/dashboard.js"></script>
   </body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>แดชบอร์ดเจ้ามือหวย</h1>
+
+    <nav>
+      <a href="form.html">เพิ่มการแทง</a> |
+      <a href="summary.html">ดูรายงาน</a>
+    </nav>
+
+    <section>
+      <h2>สถิติรวม</h2>
+      <p>ยอดแทงรวม: <span id="total-amount">0</span> บาท</p>
+      <p>เลขยอดนิยม:</p>
+      <ul id="top-numbers"></ul>
+    </section>
+
+    <script src="assets/js/dashboard.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LottoKit - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .summary-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .summary-card:hover {
+            transform: translateY(-5px);
+        }
+        .top-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <h1 class="text-center mb-4">LottoKit Dashboard</h1>
+        
+        <!-- ส่วนสรุปยอดแทง -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card summary-card bg-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">หวยไทย</h5>
+                        <p class="card-text display-6">25,540 บาท</p>
+                        <small class="text-muted">ยอดแทงวันนี้</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card summary-card bg-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">หวยลาว</h5>
+                        <p class="card-text display-6">18,320 บาท</p>
+                        <small class="text-muted">ยอดแทงวันนี้</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card summary-card bg-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">หวยฮานอย</h5>
+                        <p class="card-text display-6">12,150 บาท</p>
+                        <small class="text-muted">ยอดแทงวันนี้</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ส่วนเลขที่แทงเยอะ -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        เลขบนที่แทงเยอะที่สุด
+                    </div>
+                    <div class="card-body">
+                        <div class="top-number text-center py-2">123 (15 ครั้ง)</div>
+                        <div class="top-number text-center py-2">567 (12 ครั้ง)</div>
+                        <div class="top-number text-center py-2">789 (10 ครั้ง)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        เลขล่างที่แทงเยอะที่สุด
+                    </div>
+                    <div class="card-body">
+                        <div class="top-number text-center py-2">45 (18 ครั้ง)</div>
+                        <div class="top-number text-center py-2">67 (15 ครั้ง)</div>
+                        <div class="top-number text-center py-2">89 (9 ครั้ง)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        เลขโต๊ดที่แทงเยอะที่สุด
+                    </div>
+                    <div class="card-body">
+                        <div class="top-number text-center py-2">678 (8 ครั้ง)</div>
+                        <div class="top-number text-center py-2">234 (7 ครั้ง)</div>
+                        <div class="top-number text-center py-2">901 (5 ครั้ง)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ปุ่มเพิ่มการแทงใหม่ -->
+        <div class="text-center mb-4">
+            <button class="btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#addBetModal">
+                <i class="bi bi-plus-circle"></i> เพิ่มการแทงใหม่
+            </button>
+        </div>
+        
+        <!-- ตารางแสดงรายการแทงล่าสุด -->
+        <div class="card">
+            <div class="card-header">
+                <h5>รายการแทงล่าสุด</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>เวลา</th>
+                                <th>ประเภทหวย</th>
+                                <th>รูปแบบ</th>
+                                <th>หมายเลข</th>
+                                <th>จำนวนเงิน</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10:30 น.</td>
+                                <td>หวยไทย</td>
+                                <td>เลขบน</td>
+                                <td>123</td>
+                                <td>500 บาท</td>
+                            </tr>
+                            <tr>
+                                <td>10:25 น.</td>
+                                <td>หวยลาว</td>
+                                <td>เลขล่าง</td>
+                                <td>45</td>
+                                <td>300 บาท</td>
+                            </tr>
+                            <tr>
+                                <td>10:20 น.</td>
+                                <td>หวยฮานอย</td>
+                                <td>โต๊ด</td>
+                                <td>678</td>
+                                <td>200 บาท</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal สำหรับเพิ่มการแทงใหม่ -->
+    <div class="modal fade" id="addBetModal" tabindex="-1" aria-labelledby="addBetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addBetModalLabel">เพิ่มการแทงใหม่</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="betForm">
+                        <div class="mb-3">
+                            <label for="lottoType" class="form-label">ประเภทหวย</label>
+                            <select class="form-select" id="lottoType" required>
+                                <option value="" selected disabled>เลือกประเภทหวย</option>
+                                <option value="thai">หวยไทย</option>
+                                <option value="lao">หวยลาว</option>
+                                <option value="hanoi">หวยฮานอย</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">รูปแบบการแทง</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="betType" id="betType1" value="top" checked>
+                                <label class="form-check-label" for="betType1">
+                                    เลขบน (3 ตัว)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="betType" id="betType2" value="bottom">
+                                <label class="form-check-label" for="betType2">
+                                    เลขล่าง (2 ตัว)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="betType" id="betType3" value="tod">
+                                <label class="form-check-label" for="betType3">
+                                    โต๊ด
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="betNumber" class="form-label">หมายเลข</label>
+                            <input type="text" class="form-control" id="betNumber" placeholder="กรอกหมายเลข" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="betAmount" class="form-label">จำนวนเงิน</label>
+                            <input type="number" class="form-control" id="betAmount" placeholder="กรอกจำนวนเงิน" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                    <button type="button" class="btn btn-primary" onclick="submitBet()">บันทึกการแทง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function submitBet() {
+            // ตัวอย่างฟังก์ชันสำหรับบันทึกการแทง
+            const lottoType = document.getElementById('lottoType').value;
+            const betType = document.querySelector('input[name="betType"]:checked').value;
+            const betNumber = document.getElementById('betNumber').value;
+            const betAmount = document.getElementById('betAmount').value;
+            
+            // ตรวจสอบข้อมูล
+            if (!lottoType || !betNumber || !betAmount) {
+                alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+                return;
+            }
+            
+            // ส่งข้อมูลไปยังเซิร์ฟเวอร์ (ตัวอย่างเท่านั้น)
+            console.log('บันทึกการแทง:', {
+                lottoType,
+                betType,
+                betNumber,
+                betAmount
+            });
+            
+            // ปิด Modal และรีเฟรชข้อมูล
+            var modal = bootstrap.Modal.getInstance(document.getElementById('addBetModal'));
+            modal.hide();
+            
+            // แสดงข้อความสำเร็จ
+            alert('บันทึกการแทงเรียบร้อยแล้ว');
+            
+            // ในทางปฏิบัติควรมีฟังก์ชันรีเฟรชข้อมูลหน้าจอ
+            // refreshData();
+        }
+    </script>
+</body>
 </html>
