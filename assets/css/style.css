@@ -18,6 +18,25 @@ body {
   text-align: center;
 }
 
+.register-container {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow:  0 px 12px rgb(0, 0, 0 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+.forgetpassword-container {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow:  0 px 12px rgb(0, 0, 0 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
 form label {
   display: block;
   text-align: left;
@@ -52,6 +71,53 @@ form input {
 
 .button-submit button:hover {
   background-color: #218838;
+}
+
+.button-register {
+  margin-top: 20px;
+}
+
+.button-register button {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3 ease;
+}
+
+.button-register button:hover {
+  background-color: #218838;
+}
+
+.buntton-sendforgetemail {
+  margin-top: 20px;
+}
+
+.buntton-sendforgetemail button {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3 ease;
+}
+
+.buntton-sendforgetemail button:hover {
+  background-color: #218838;
+}
+
+.link-register {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* .button-register {
