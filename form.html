@@ -1,38 +1,254 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <title>เพิ่มการแทงหวย</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจัดการหวยสำหรับเจ้ามือ</title>
+    <link rel="stylesheet" href="assets/css/style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>เพิ่มการแทงใหม่</h1>
+    <div class="app-container">
+        <!-- ส่วน sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>ระบบเจ้ามือหวย</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active"><a href="#dashboard"><i class="icon-dashboard"></i>แดชบอร์ด</a></li>
+                    <li><a href="#manage-lottery"><i class="icon-lottery"></i>จัดการเลขหวย</a></li>
+                    <li><a href="#record-results"><i class="icon-results"></i>บันทึกผลหวย</a></li>
+                    <li><a href="#calculate"><i class="icon-calculate"></i>คำนวณยอดแทง</a></li>
+                    <li><a href="#settings"><i class="icon-settings"></i>ตั้งค่าระบบ</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img src="assets/images/ChaideePos.png" alt="Profile">
+                <span>เจ้ามือหวย</span>
+                <button id="logout-btn">ออกจากระบบ</button>
+            </div>
+        </aside>
 
-  <form id="betForm">
-    <label>ชื่อผู้แทง: <input type="text" name="name" required></label><br>
+        <!-- ส่วนเนื้อหาหลัก -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h2 id="page-title">แดชบอร์ด</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="ค้นหา...">
+                    <button><i class="icon-search"></i></button>
+                </div>
+            </header>
 
-    <label>ประเภทหวย:
-      <select name="type" required>
-        <option value="thai">หวยไทย</option>
-        <option value="lao">หวยลาว</option>
-        <option value="hanoi">หวยฮานอย</option>
-      </select>
-    </label><br>
+            <!-- หน้า Dashboard -->
+            <section id="dashboard" class="page active-page">
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>หวยไทย</h3>
+                        <div class="stat-value">15,200 <span>บาท</span></div>
+                        <div class="stat-info">ยอดแทงวันนี้</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>หวยลาว</h3>
+                        <div class="stat-value">8,750 <span>บาท</span></div>
+                        <div class="stat-info">ยอดแทงวันนี้</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>หวยฮานอย</h3>
+                        <div class="stat-value">12,300 <span>บาท</span></div>
+                        <div class="stat-info">ยอดแทงวันนี้</div>
+                    </div>
+                </div>
 
-    <label>เลขที่แทง: <input type="text" name="number" required></label><br>
-    
-    <label>ประเภทเลข:
-      <select name="position" required>
-        <option value="top">เลขบน</option>
-        <option value="bottom">เลขล่าง</option>
-        <option value="tod">โต๊ด</option>
-      </select>
-    </label><br>
+                <div class="recent-draws">
+                    <h3>ผลหวยล่าสุด</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>วันที่</th>
+                                <th>ประเภทหวย</th>
+                                <th>เลข 3 ตัว</th>
+                                <th>เลข 2 ตัว</th>
+                                <th>สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ข้อมูลจะถูกเติมด้วย JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-    <label>จำนวนเงิน: <input type="number" name="amount" required></label><br>
+            <!-- หน้าจัดการเลขหวย -->
+            <section id="manage-lottery" class="page">
+                <div class="lottery-tabs">
+                    <button class="tab-btn active" data-tab="thai">หวยไทย</button>
+                    <button class="tab-btn" data-tab="laos">หวยลาว</button>
+                    <button class="tab-btn" data-tab="hanoi">หวยฮานอย</button>
+                </div>
 
-    <button type="submit">บันทึก</button>
-  </form>
+                <div class="tab-content active" id="thai-tab">
+                    <div class="action-bar">
+                        <button id="add-thai-number" class="btn-primary">เพิ่มเลขหวย</button>
+                        <div class="date-filter">
+                            <label for="thai-date">วันที่:</label>
+                            <input type="date" id="thai-date">
+                        </div>
+                    </div>
+                    <table class="lottery-table">
+                        <thead>
+                            <tr>
+                                <th>เลขที่</th>
+                                <th>ประเภท</th>
+                                <th>จำนวนแทง</th>
+                                <th>จ่ายบาทละ</th>
+                                <th>วันที่</th>
+                                <th>การจัดการ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="thai-numbers">
+                            <!-- ข้อมูลจะถูกเติมด้วย JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
 
-  <script src="assets/js/form.js"></script>
+                <!-- ส่วนหวยลาวและหวยฮานอยจะมีโครงสร้างคล้ายกัน -->
+            </section>
+
+            <!-- หน้าบันทึกผลหวย -->
+            <section id="record-results" class="page">
+                <div class="result-form">
+                    <h3>บันทึกผลรางวัล</h3>
+                    <form id="lottery-result-form">
+                        <div class="form-group">
+                            <label for="lottery-type">ประเภทหวย:</label>
+                            <select id="lottery-type" required>
+                                <option value="">เลือกประเภทหวย</option>
+                                <option value="thai">หวยไทย</option>
+                                <option value="laos">หวยลาว</option>
+                                <option value="hanoi">หวยฮานอย</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="draw-date">วันที่ออกผล:</label>
+                            <input type="date" id="draw-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="three-digit">เลข 3 ตัว:</label>
+                            <input type="text" id="three-digit" maxlength="3" pattern="\d{3}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="two-digit">เลข 2 ตัว:</label>
+                            <input type="text" id="two-digit" maxlength="2" pattern="\d{2}" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">บันทึกผล</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- หน้าคำนวณยอดแทง -->
+            <section id="calculate" class="page">
+                <div class="calculate-container">
+                    <div class="calculate-form">
+                        <h3>คำนวณยอดแทงหวย</h3>
+                        <form id="calculate-form">
+                            <div class="form-group">
+                                <label for="calc-lottery-type">ประเภทหวย:</label>
+                                <select id="calc-lottery-type" required>
+                                    <option value="">เลือกประเภทหวย</option>
+                                    <option value="thai">หวยไทย</option>
+                                    <option value="laos">หวยลาว</option>
+                                    <option value="hanoi">หวยฮานอย</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="calc-number">เลขที่แทง:</label>
+                                <input type="text" id="calc-number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="calc-amount">จำนวนเงิน (บาท):</label>
+                                <input type="number" id="calc-amount" min="1" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="calc-bet-type">ประเภทการแทง:</label>
+                                <select id="calc-bet-type" required>
+                                    <option value="3digit">3 ตัว</option>
+                                    <option value="2digit">2 ตัว</option>
+                                    <option value="run3">วิ่ง 3 ตัว</option>
+                                    <option value="run2">วิ่ง 2 ตัว</option>
+                                </select>
+                            </div>
+                            
+                            <button type="button" id="calculate-btn" class="btn-primary">คำนวณ</button>
+                        </form>
+                    </div>
+                    
+                    <div class="calculate-result">
+                        <h4>ผลการคำนวณ</h4>
+                        <div class="result-box">
+                            <p>เลขที่แทง: <span id="result-number">-</span></p>
+                            <p>ประเภท: <span id="result-type">-</span></p>
+                            <p>จำนวนเงิน: <span id="result-amount">-</span> บาท</p>
+                            <p>จ่ายบาทละ: <span id="result-payout">-</span> บาท</p>
+                            <p class="total">รวมจ่าย: <span id="result-total">0</span> บาท</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal สำหรับเพิ่ม/แก้ไขเลขหวย -->
+    <div id="number-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-title">เพิ่มเลขหวย</h3>
+            <form id="number-form">
+                <input type="hidden" id="modal-lottery-id">
+                <input type="hidden" id="modal-lottery-type">
+                
+                <div class="form-group">
+                    <label for="modal-number">เลขที่:</label>
+                    <input type="text" id="modal-number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modal-bet-type">ประเภทการแทง:</label>
+                    <select id="modal-bet-type" required>
+                        <option value="3digit">3 ตัว</option>
+                        <option value="2digit">2 ตัว</option>
+                        <option value="run3">วิ่ง 3 ตัว</option>
+                        <option value="run2">วิ่ง 2 ตัว</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modal-amount">จำนวนแทง (บาท):</label>
+                    <input type="number" id="modal-amount" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modal-payout">จ่ายบาทละ:</label>
+                    <input type="number" id="modal-payout" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modal-date">วันที่:</label>
+                    <input type="date" id="modal-date" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">บันทึก</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
