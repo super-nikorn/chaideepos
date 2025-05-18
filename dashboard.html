@@ -1,83 +1,86 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard - ChaideePOS</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
-  <div class="container">
-    <aside class="sidebar">
-      <img src="assets/images/ChaideePos.png" alt="Logo" class="sidebar-logo" />
-      <h2>👤 ข้อมูลผู้ใช้</h2>
-      <p><strong>ชื่อ:</strong> <span id="user-name">-</span></p>
-      <p><strong>Email:</strong> <span id="user-email">-</span></p>
-      <p><strong>ยอดเงิน:</strong> <span id="user-balance">-</span> บาท</p>
-      <button id="logout-btn">ออกจากระบบ</button>
-    </aside>
-    <main class="main-content">
-      <h1>🎉 ยินดีต้อนรับสู่ ChaideePOS</h1>
-      <p>แดชบอร์ดของคุณอยู่ที่นี่</p>
-    </main>
-    <div class="button-input">
-      <button id="openDialog">เปิดฟอร์ม</button>
-      <!-- <button id="input-numberThai">หวยไทย</button> -->
-      <button id="input-numberLoa">หวยลาว</button>
-      <button id="input-numberHanoy">ฮานอย</button>
-      <button id="input-numberLaopat">ลาวพัฒนา</button>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard - ChaideePOS</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <img
+          src="assets/images/ChaideePos.png"
+          alt="Logo"
+          class="sidebar-logo"
+        />
+        <h2>👤 ข้อมูลผู้ใช้</h2>
+        <p><strong>ชื่อ:</strong> <span id="user-name">-</span></p>
+        <p><strong>Email:</strong> <span id="user-email">-</span></p>
+        <p><strong>ยอดเงิน:</strong> <span id="user-balance">-</span> บาท</p>
+        <button id="logout-btn">ออกจากระบบ</button>
+      </aside>
+      <main class="main-content">
+        <h1>🎉 ยินดีต้อนรับสู่ ChaideePOS</h1>
+        <p>แดชบอร์ดของคุณอยู่ที่นี่</p>
+      </main>
+      <div class="button-input">
+        <button id="openDialog">เปิดฟอร์ม</button>
+        <!-- <button id="input-numberThai">หวยไทย</button> -->
+        <button id="input-numberLoa">หวยลาว</button>
+        <button id="input-numberHanoy">ฮานอย</button>
+        <button id="input-numberLaopat">ลาวพัฒนา</button>
+      </div>
 
-    <dialog id="myDialog">
+      <dialog id="myDialog">
         <h2>ฟอร์มข้อมูล</h2>
         <form method="dialog">
-            <div class="form-group">
-                <label for="name">ชื่อ:</label>
-                <input type="text" id="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">อีเมล:</label>
-                <input type="email" id="email" required>
-            </div>
-            <div class="button-group">
-                <button type="button" id="cancelBtn">ยกเลิก</button>
-                <button type="submit" id="confirmBtn">ยืนยัน</button>
-            </div>
+          <div class="form-group">
+            <label for="name">ชื่อ:</label>
+            <input type="text" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">อีเมล:</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="button-group">
+            <button type="button" id="cancelBtn">ยกเลิก</button>
+            <button type="submit" id="confirmBtn">ยืนยัน</button>
+          </div>
         </form>
-    </dialog>
+      </dialog>
 
-    <script>
-      const dialog = document.getElementById('myDialog');
-      const openBtn = document.getElementById('openDialog');
-      const cancelBtn = document.getElementById('cancelBtn');
+      <script>
+        const dialog = document.getElementById("myDialog");
+        const openBtn = document.getElementById("openDialog");
+        const cancelBtn = document.getElementById("cancelBtn");
 
-      // เปิด dialog เมื่อคลิกปุ่ม
-      openBtn.addEventListener('click', () => {
+        // เปิด dialog เมื่อคลิกปุ่ม
+        openBtn.addEventListener("click", () => {
           dialog.showModal();
-      });
+        });
 
-      // ปิด dialog เมื่อคลิกยกเลิก
-      cancelBtn.addEventListener('click', () => {
+        // ปิด dialog เมื่อคลิกยกเลิก
+        cancelBtn.addEventListener("click", () => {
           dialog.close();
-      });
+        });
 
-      // จัดการเมื่อฟอร์มถูก submit
-      dialog.addEventListener('close', () => {
-          if (dialog.returnValue === 'confirm') {
-              const name = document.getElementById('name').value;
-              const email = document.getElementById('email').value;
-              console.log('ข้อมูลที่กรอก:', { name, email });
-              alert(`บันทึกข้อมูลเรียบร้อย: ${name}, ${email}`);
+        // จัดการเมื่อฟอร์มถูก submit
+        dialog.addEventListener("close", () => {
+          if (dialog.returnValue === "confirm") {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            console.log("ข้อมูลที่กรอก:", { name, email });
+            alert(`บันทึกข้อมูลเรียบร้อย: ${name}, ${email}`);
           }
-      });
-    </script>
+        });
+      </script>
+    </div>
 
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
-  <script src="assets/js/firebase.js"></script>
-  <script src="assets/js/dashboard.js"></script>
-</body>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+    <script src="assets/js/firebase.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+  </body>
 </html>
